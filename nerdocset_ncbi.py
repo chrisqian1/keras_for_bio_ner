@@ -431,15 +431,15 @@ if __name__=="__main__":
     # use argument parser to receive command options
     # python nerdocset_ncbi.py --option tv --datapath data --modelname Lstm_Crf --batchsize 32 --epoch 5 --stimes 1 --times 2 --experiment 0
     parser = ArgumentParser()
-    parser.add_argument('--option', required=False, help='t | v | tv', default='tv')
-    parser.add_argument('--datapath', required=False, help='data', default='data')
-    parser.add_argument('--modelname', required=False, help='Bert | Lstm | Crf', default='Lstm')
+    parser.add_argument('--option', required=True, help='t | v | tv', default='tv')
+    parser.add_argument('--datapath', required=True, help='data', default='data')
+    parser.add_argument('--modelname', required=True, help='Bert | Lstm | Crf', default='Lstm')
     parser.add_argument('--batchsize', type=int, help='number of batchsize', default=32)
-    parser.add_argument('--epoch', type=int, help='number of total epoches', default=5)
+    parser.add_argument('--epoch', type=int, help='number of total epoches', default=20)
     parser.add_argument('--embedding', type=str, help='word embedding', default='Glove')
     parser.add_argument('--stimes', type=int, help='number of experiment times', default=0)
-    parser.add_argument('--times', type=int, help='number of experiment times', default=1)
-    parser.add_argument('--experiment', type=int, help='Where to store models and results', default=2)
+    parser.add_argument('--times', type=int, help='number of experiment times', default=5)
+    parser.add_argument('--experiment', type=int, help='Where to store models and results', default=0)
     opt = parser.parse_args()
 
     bert_model_path = '../../AnaPython/bert-model/bert-base-uncased/'
