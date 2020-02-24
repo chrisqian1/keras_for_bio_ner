@@ -8,7 +8,7 @@ For Lstm and Lstm_Crf model, tokenizers in nltk are used to split sentence and t
 For Bert, nltk sent tokenizer is used to split sentence and bert tokenized is used to tokenize word piece. Word piece is the only features used for training. 
 
 When training, the best model will be saved as the final model. Category accuracy or crf viterbi accuracy will be used to choose the best model by evaluating on validation set.
-### usage and Example
+### Usage and Example
 Task are trained and tested on NBCI disease corpus. 
 To train and test, using command line:
 ```shell
