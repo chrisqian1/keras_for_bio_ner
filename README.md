@@ -4,7 +4,9 @@ Biomedical named entity recognition using keras
 This repository is for biomedical named entity recognition task based on keras. It will read text and entity in the docset and arrange it with aspect of doc, sentence and token level. Also, it would prepare the input, train and test on data using various models in keras. Models avaiable now is Lstm, Lstm_crf and Bert. Other models would be added in the future.
 ### Model setting
 For Lstm and Lstm_Crf model, tokenizers in nltk are used to split sentence and tokenize. The main feature are word vectors (using Glove embeddings). In addition, there's one option of POS feature. (using random embedding). Only one BiLstm layer and one dropout layer are used.
+
 For Bert, nltk sent tokenizer is used to split sentence and bert tokenized is used to tokenize word piece. Word piece is the only features used for training. 
+
 When training, the best model will be saved as the final model. Category accuracy or crf viterbi accuracy will be used to choose the best model by evaluating on validation set.
 ### usage and Example
 Task are trained and tested on NBCI disease corpus. 
@@ -13,11 +15,27 @@ To train and test, using command line:
 python nerdocset_ncbi.py --option tv --dataset data --modelname Lstm --batchsize 32 --epoch 20 --embedding Glove --times 5 --experiment 0
 ```
 option: t for train and v for validate(test), required
+
 dataset: folder of the dataset, required
+
 modelname: Lstm, Lstm_Crf or Bert, required
+
 batchsize: batch size used when training, default 32. It should be 8 or less in Bert considering the performance of GPU
+
 epoch: epoches used when training, default 20
+
 embedding: word embedding, can be Glove or Word2Vec
+
 times: total times of training, default 5
+
 experiment: No. of experiment
-Reference
+
+### Reference
+[1] Habibi,M. et al. (2017) Deep learning with word embeddings improves biomedical named entity recognition. Bioinformatics, 33, i37–i48.
+
+[2] Thanh Hai Dang, Hoang-Quynh Le, Trang M Nguyen, and Sinh T Vu. 2018. D3ner: Biomedical named entity recognition using crf-bilstm improved with finetuned embeddings of various linguistic information. Bioinformatics.
+
+[3] Wang, X., Zhang, Y., Ren, X., Zhang, Y., Zitnik, M., Shang, J., Langlotz, C., and Han, J. (2018). Cross-type biomedical named entityrecognition with deep multi-task learning. CoRR, abs/1801.09851.
+
+[4] Jinhyuk Lee, Wonjin Yoon, Sungdong Kim, Donghyeon Kim, Sunkyu Kim, Chan Ho So, and Jaewoo Kang. 2019. BioBERT: a pre-trained biomedical language representation model for biomedical text mining. arXiv:1901.08746 [cs]. ArXiv: 1901.08746.
+
