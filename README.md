@@ -31,7 +31,7 @@ experiment: No. of experiment
 ### Experimental results on the NCBI disease corpus
 | Model    | Precision | Recall | F1    |
 | -------- | --------- | ------ | ----- |
-| Lstm     | 81.99     | 78.31  | 80.09 |
+| Lstm     | 70.92     | 74.06  | 72.45 |
 | Lstm_Crf | 80.99     | 81.45  | 81.22 |
 | Bert     | 80.51     | 85.54  | 82.95 |
 | Bert_Crf | 83.08     | 85.62  | 84.31 |
