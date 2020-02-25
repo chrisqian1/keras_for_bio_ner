@@ -29,12 +29,12 @@ times: total times of training, default 5
 experiment: No. of experiment
 
 ### Experimental results on the NCBI disease corpus
-Model | Precision | Recall | F1 
-
-Lstm | 81.99 | 78.31 | 80.09 
-
-Lstm_Crf | 80.99 | 81.42 | 81.22  
-
+| Model    | Precision | Recall | F1    |
+| -------- | --------- | ------ | ----- |
+| Lstm     | 81.99     | 78.31  | 80.09 |
+| Lstm_Crf | 80.99     | 81.45  | 81.22 |
+| Bert     | 80.51     | 85.54  | 82.95 |
+| Bert_Crf | 83.08     | 85.62  | 84.31 |
 
 ### Reference
 [1] Habibi,M. et al. (2017) Deep learning with word embeddings improves biomedical named entity recognition. Bioinformatics, 33, i37–i48.
