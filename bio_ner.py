@@ -431,7 +431,7 @@ if __name__=="__main__":
     # use argument parser to receive command options
     # python nerdocset_ncbi.py --option tv --datapath data --modelname Lstm_Crf --batchsize 32 --epoch 5 --stimes 1 --times 2 --experiment 0
     parser = ArgumentParser()
-    parser.add_argument('--option', required=True, help='t | v | tv', default='tv')
+    parser.add_argument('--operation', required=True, help='t | v | tv', default='tv')
     parser.add_argument('--datapath', required=True, help='data', default='data')
     parser.add_argument('--modelname', required=True, help='Bert | Lstm | Crf', default='Lstm')
     parser.add_argument('--batchsize', type=int, help='number of batchsize', default=32)
@@ -483,9 +483,9 @@ if __name__=="__main__":
 
     # train and validate according to options
     for i in range(opt.stimes, opt.times):
-        if 't' in opt.option:
+        if 't' in opt.operation:
             train_doc.train(opt.modelname, dict_list, bert_model_path, glove_path, word2ved_path, 'model{}_{}.hdf5'.format(opt.experiment, i), True, opt.batchsize, opt.epoch, opt.embedding)
-        if 'v' in opt.option:
+        if 'v' in opt.operation:
             test_doc.validate(opt.modelname, dict_list, bert_model_path, glove_path, word2ved_path, opt.batchsize, 'model{}_{}.hdf5'.format(opt.experiment, i), 'result{}_{}.txt'.format(opt.experiment, i), opt.embedding)
-        if 'a' in opt.option:
+        if 'a' in opt.operation:
             test_doc.test_output('testout{}_{}.txt'.format(opt.experiment, i))
