@@ -1,7 +1,7 @@
 from keras.utils import to_categorical
 from keras.callbacks import ModelCheckpoint
 from ie_model import *
-from nerdoc_ncbi import *
+from nerdoc import *
 import numpy as np
 import random
 import os
