@@ -156,7 +156,7 @@ class nerDocSet():
         self.X = [index_array, segment_array]
         return
 
-    def train(self, modelname, dict_list, bert_path, model_path, validate, batch_size, epoch, embedding='Glove'):
+    def train(self, modelname, dict_list, bert_path, glove_path, word2ved_path, model_path, validate, batch_size, epoch, embedding='Glove'):
         '''
         train model with data
         '''
@@ -169,9 +169,9 @@ class nerDocSet():
         else:
             # get word embedding path
             if embedding == 'Glove':
-                embed_path = '../../AnaPython/glove/glove.6B.100d.txt'
+                embed_path = glove_path
             else:
-                embed_path = '../../AnaPython/glove/PubMed-and-PMC-w2v.bin'
+                embed_path = word2ved_path
             # get word embedding matrix and dimension
             if 'Lstm' in modelname:
                 embed_matrix, embed_dim = load_pretrained_embedding_from_file(embed_path, word_dict, embedding)
@@ -190,7 +190,7 @@ class nerDocSet():
         print('model_saved')
         return
 
-    def validate(self, modelname, dict_list, bert_path, batch_size, model_path, output_path, embedding='Glove'):
+    def validate(self, modelname, dict_list, bert_path, glove_path, word2ved_path, batch_size, model_path, output_path, embedding='Glove'):
         '''
         test/validate with saved model and evaluate the result
         '''
@@ -203,9 +203,9 @@ class nerDocSet():
         else:
             # get word embedding path
             if embedding == 'Glove':
-                embed_path = '../../AnaPython/glove/glove.6B.100d.txt'
+                embed_path = glove_path
             else:
-                embed_path = '../../AnaPython/glove/PubMed-and-PMC-w2v.bin'
+                embed_path = word2ved_path
             # get word embedding matrix and dimension
             if 'Lstm' in modelname:
                 embed_matrix, embed_dim = load_pretrained_embedding_from_file(embed_path, word_dict, embedding)
@@ -443,6 +443,9 @@ if __name__=="__main__":
     opt = parser.parse_args()
 
     bert_model_path = '../../AnaPython/bert-model/bert-base-uncased/'
+    glove_path = '../../AnaPython/glove/glove.6B.100d.txt'
+    word2ved_path = '../../AnaPython/glove/PubMed-and-PMC-w2v.bin'
+
     label_schema = 'BIEO'
     # initialize dicts
     dict_list = generate_dict_list(opt.modelname)
@@ -481,8 +484,8 @@ if __name__=="__main__":
     # train and validate according to options
     for i in range(opt.stimes, opt.times):
         if 't' in opt.option:
-            train_doc.train(opt.modelname, dict_list, bert_model_path, 'model{}_{}.hdf5'.format(opt.experiment, i), True, opt.batchsize, opt.epoch, opt.embedding)
+            train_doc.train(opt.modelname, dict_list, bert_model_path, glove_path, word2ved_path, 'model{}_{}.hdf5'.format(opt.experiment, i), True, opt.batchsize, opt.epoch, opt.embedding)
         if 'v' in opt.option:
-            test_doc.validate(opt.modelname, dict_list, bert_model_path, opt.batchsize, 'model{}_{}.hdf5'.format(opt.experiment, i), 'result{}_{}.txt'.format(opt.experiment, i), opt.embedding)
+            test_doc.validate(opt.modelname, dict_list, bert_model_path, glove_path, word2ved_path, opt.batchsize, 'model{}_{}.hdf5'.format(opt.experiment, i), 'result{}_{}.txt'.format(opt.experiment, i), opt.embedding)
         if 'a' in opt.option:
             test_doc.test_output('testout{}_{}.txt'.format(opt.experiment, i))
