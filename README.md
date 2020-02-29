@@ -42,12 +42,9 @@ experiment: No. of experiment
 
 [2] Habibi,M. et al. (2017) Deep learning with word embeddings improves biomedical named entity recognition. Bioinformatics, 33, i37–i48.
 
-[3] Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. Glove: Global vectors for
-word representation. In Empirical Methods in Natural Language Processing (EMNLP), pages 1532–
-1543.
+[3] Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. Glove: Global vectors for word representation. In Empirical Methods in Natural Language Processing (EMNLP), pages 1532–1543.
 
-[4] Noah A Smith. Contextual word representations: A contextual introduction. arXiv
-preprint arXiv:1902.06006, 2019.
+[4] Noah A Smith. Contextual word representations: A contextual introduction. arXiv preprint arXiv:1902.06006, 2019.
 
 [5] Jinhyuk Lee, Wonjin Yoon, Sungdong Kim, Donghyeon Kim, Sunkyu Kim, Chan Ho So, and Jaewoo Kang. 2019. BioBERT: a pre-trained biomedical language representation model for biomedical text mining. arXiv:1901.08746 [cs]. ArXiv: 1901.08746.
 
