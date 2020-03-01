@@ -4,7 +4,7 @@ This repository is for biomedical named entity recognition task using various mo
 ### Model setting
 For Lstm and Lstm_Crf model[2], the nltk toolkit[6] is used to split abstracts into sentences and tokenize these sentences into tokens. The main feature is pre-trained word vectors (Glove[3] or Word2Vec[4]). Additional features include POS etc.
 
-For Bert and Bert_Crf[5], the nltk toolkit[6] is used to only split sentences and BERT tokenizer is used to tokenize a sentence into word pieces. BioBert pre-trained model based on PubMed is loaded as initial model.
+For Bert and Bert_Crf[5], the nltk toolkit[6] is used to only split sentences and BERT tokenizer is used to tokenize a sentence into word pieces. BioBert pre-trained model[5] based on PubMed is loaded as initial model.
 
 When training, the best model on the validation set will be saved as the final model. Category accuracy or crf-viterbi-accuracy when CRF is involved will be used to choose the best model by evaluating on the validation set.
 ### Usage and Example
